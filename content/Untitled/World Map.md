@@ -1,6 +1,6 @@
 ---
 title: World Map
-draft: true
+draft: false
 tags:
   - map
 ---
