@@ -1,0 +1,139 @@
+{
+  "image": "zz_attachements/Images/Map_of_New_World.jpg",
+  "size": {
+    "w": 4096,
+    "h": 2353
+  },
+  "layers": [
+    {
+      "id": "default",
+      "name": "Default",
+      "visible": true,
+      "locked": false
+    }
+  ],
+  "markers": [
+    {
+      "type": "pin",
+      "id": "marker_d4wj6j",
+      "x": 0.20406087239583334,
+      "y": 0.3295217098739198,
+      "layer": "default",
+      "link": "Westerion",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    },
+    {
+      "type": "pin",
+      "id": "marker_deumfa",
+      "x": 0.2123026414388393,
+      "y": 0.29455476523593943,
+      "layer": "default",
+      "link": "Stormgate",
+      "iconKey": "circle",
+      "tooltip": "",
+      "scaleLikeSticker": true,
+      "iconColor": "#050505",
+      "minZoom": 0.6
+    },
+    {
+      "type": "pin",
+      "id": "marker_xu2u8o",
+      "x": 0.15836782827639945,
+      "y": 0.21959177381479167,
+      "layer": "default",
+      "link": "",
+      "iconKey": "pinBlue",
+      "tooltip": "",
+      "minZoom": 0.45,
+      "maxZoom": 0.6
+    },
+    {
+      "type": "pin",
+      "id": "marker_1beyan",
+      "x": 0.26280426782024785,
+      "y": 0.6551736602590443,
+      "layer": "default",
+      "link": "Tōnacāpan",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    },
+    {
+      "type": "pin",
+      "id": "marker_jnsmdh",
+      "x": 0.5572509765625,
+      "y": 0.2586901473296501,
+      "layer": "default",
+      "link": "Elderwyn",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    },
+    {
+      "type": "pin",
+      "id": "marker_52sgiq",
+      "x": 0.5898030598958334,
+      "y": 0.5774321787788639,
+      "layer": "default",
+      "link": "Zaharathe",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    },
+    {
+      "type": "pin",
+      "id": "marker_gvnq78",
+      "x": 0.7843017578125,
+      "y": 0.29977245360532656,
+      "layer": "default",
+      "link": "OshKhadera",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    },
+    {
+      "type": "pin",
+      "id": "marker_9a60hg",
+      "x": 0.8639248934659085,
+      "y": 0.7567507308529402,
+      "layer": "default",
+      "link": "",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    },
+    {
+      "type": "pin",
+      "id": "marker_ip2peh",
+      "x": 0.4059762665719694,
+      "y": 0.5519831227704152,
+      "layer": "default",
+      "link": "",
+      "iconKey": "pinRed",
+      "tooltip": "",
+      "maxZoom": 0.45,
+      "minZoom": 0.31
+    }
+  ],
+  "bases": [
+    "zz_attachements/Images/Map_of_New_World.jpg"
+  ],
+  "overlays": [],
+  "activeBase": "zz_attachements/Images/Map_of_New_World.jpg",
+  "measurement": {
+    "displayUnit": "auto-metric",
+    "scales": {}
+  },
+  "pinSizeOverrides": {},
+  "panClamp": true,
+  "drawLayers": [],
+  "drawings": []
+}
