@@ -139,7 +139,7 @@
     }
 
     async function init() {
-      const data = await fetch("./world-markers.json").then(r => r.json());
+      const data = await fetch(`./world-markers.json?v=${Date.now()}`).then(r => r.json());
 
       const W = data.size.w;
       const H = data.size.h;
