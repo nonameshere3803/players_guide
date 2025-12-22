@@ -4,4 +4,5 @@ draft: false
 tags:
 ---
  
-[Open the World Map](/quartz/static/maps/world.html)
+[Open World Map](/players_guide/maps/world.html)
+
