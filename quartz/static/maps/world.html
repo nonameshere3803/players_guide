@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Map</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100vh; width: 100vw; background: #0b1620; }
+
+    /* Simple colored pin icons (divIcon) */
+    .pin {
+      width: 14px; height: 14px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      transform: translate(-50%, -50%);
+    }
+    .pin.continent { background: #e74c3c; }  /* red */
+    .pin.region    { background: #3498db; }  /* blue */
+    .pin.city      { background: #2ecc71; }  /* green */
+    .pin.misc      { background: #f1c40f; }  /* yellow */
+
+    /* Tooltip styling */
+    .leaflet-tooltip.map-tip {
+      background: rgba(15, 20, 28, 0.92);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+      font: 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* Small top-right legend */
+    .legend {
+      position: absolute; top: 12px; right: 12px; z-index: 999;
+      background: rgba(15, 20, 28, 0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      max-width: 260px;
+    }
+    .legend-row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.9); }
+    .legend-dot.continent { background: #e74c3c; }
+    .legend-dot.region    { background: #3498db; }
+    .legend-dot.city      { background: #2ecc71; }
+    .legend-dot.misc      { background: #f1c40f; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <div class="legend" id="legend">
+    <div style="font-weight: 650; margin-bottom: 6px;">Map Pins</div>
+    <div class="legend-row"><span class="legend-dot continent"></span> Continent / Major</div>
+    <div class="legend-row"><span class="legend-dot region"></span> Region / Landmark</div>
+    <div class="legend-row"><span class="legend-dot city"></span> City / Settlement</div>
+    <div class="legend-row"><span class="legend-dot misc"></span> Other</div>
+    <div style="opacity:0.8; margin-top:8px;">Pins appear/disappear based on your Zoom Map minZoom/maxZoom settings.</div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+    // ===== Config you might tweak =====
+    // This is your Quartz site base path (GitHub Pages repo name).
+    // Your site is https://nonameshere3803.github.io/players_guide/
+    // So basePath should be "/players_guide/".
+    const basePath = "/players_guide/";
+
+    // Which marker iconKeys should map to which "level" color?
+    // Zoom Map uses iconKey values like pinRed, pinBlue, circle, etc.
+    const iconKeyToLevel = {
+      // your JSON uses pinRed for big labels (continents), pinBlue for regions
+      "pinRed": "continent",
+      "pinBlue": "region",
+      "circle": "city",
+      // fallback:
+      "default": "misc",
+    };
+
+    // ===== Helpers =====
+    function slugifyQuartz(title) {
+      // Reasonable Quartz-style slug: lower, spaces->-, strip weird chars.
+      return title
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")   // remove accents
+        .trim()
+        .toLowerCase()
+        .replace(/['"]/g, "")
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+    }
+
+    function resolveLink(linkValue) {
+      // If the JSON already contains a URL-ish path, respect it.
+      if (!linkValue) return null;
+
+      // If it starts with http(s), just use it.
+      if (/^https?:\/\//i.test(linkValue)) return linkValue;
+
+      // If it looks like an absolute path, use as-is with basePath handling.
+      if (linkValue.startsWith("/")) return linkValue;
+
+      // Otherwise treat it as a note title and slugify.
+      const slug = slugifyQuartz(linkValue);
+
+      // Quartz commonly serves pretty URLs as /<slug>/
+      // We'll link to /players_guide/<slug>/
+      return basePath + encodeURIComponent(slug) + "/";
+    }
+
+    function markerLevel(m) {
+      const key = m.iconKey || "default";
+      return iconKeyToLevel[key] || iconKeyToLevel["default"] || "misc";
+    }
+
+    function shouldShowAtCurrentScale(m, currentScale) {
+      // Zoom Map markers use minZoom/maxZoom fields like 0.31, 0.45, 0.6 etc.
+      // In Leaflet, at zoom 0 the scale is 1. Zoom -1 => 0.5, zoom 1 => 2, etc.
+      // So we compare "currentScale" (relative to zoom 0) to minZoom/maxZoom.
+      const minZ = (typeof m.minZoom === "number") ? m.minZoom : null;
+      const maxZ = (typeof m.maxZoom === "number") ? m.maxZoom : null;
+
+      if (minZ !== null && currentScale < minZ) return false;
+      if (maxZ !== null && currentScale > maxZ) return false;
+      return true;
+    }
+
+    async function init() {
+      const data = await fetch("./world-markers.json").then(r => r.json());
+
+      const W = data.size.w;
+      const H = data.size.h;
+
+      // Leaflet "Simple" CRS: coordinates are in image pixels (y down).
+      // We'll use the image pixel space directly.
+      const bounds = [[0, 0], [H, W]];
+
+      const map = L.map("map", {
+        crs: L.CRS.Simple,
+        minZoom: -3,
+        maxZoom: 3,
+        zoomSnap: 0.25,
+        zoomDelta: 0.25,
+        wheelPxPerZoomLevel: 90,
+      });
+
+      // Map image overlay
+      L.imageOverlay("./" + data.image, bounds).addTo(map);
+      map.fitBounds(bounds);
+      map.setMaxBounds(bounds);
+
+      // For quick debugging: click to log coords and normalized coords
+      map.on("click", (e) => {
+        const y = e.latlng.lat;
+        const x = e.latlng.lng;
+        const nx = x / W;
+        const ny = y / H;
+        console.log("Clicked:", { x, y, nx, ny });
+      });
+
+      const markers = [];
+      const addMarker = (m) => {
+        if (m.type !== "pin") return;
+        const xPx = m.x * W;
+        const yPx = m.y * H;
+
+        const level = markerLevel(m);
+        const icon = L.divIcon({
+          className: "",
+          html: `<div class="pin ${level}"></div>`,
+          iconSize: [14, 14],
+          iconAnchor: [7, 7],
+        });
+
+        const marker = L.marker([yPx, xPx], { icon });
+
+        const label = (m.tooltip && m.tooltip.trim()) ? m.tooltip.trim() : (m.link || "");
+        if (label) {
+          marker.bindTooltip(label, {
+            direction: "top",
+            offset: [0, -10],
+            opacity: 1,
+            className: "map-tip",
+            sticky: true,
+          });
+        }
+
+        const url = resolveLink(m.link);
+        if (url) {
+          marker.on("click", () => {
+            window.location.href = url;
+          });
+        }
+
+        marker.addTo(map);
+        marker.__meta = m;
+        markers.push(marker);
+      };
+
+      data.markers.forEach(addMarker);
+
+      function refreshVisibility() {
+        const scale = map.getZoomScale(map.getZoom(), 0);
+        for (const mk of markers) {
+          const m = mk.__meta;
+          const show = shouldShowAtCurrentScale(m, scale);
+          const onMap = map.hasLayer(mk);
+          if (show && !onMap) mk.addTo(map);
+          if (!show && onMap) map.removeLayer(mk);
+        }
+      }
+
+      map.on("zoomend", refreshVisibility);
+      refreshVisibility();
+
+      // Optional: expose for debugging
+      window.__MAP__ = { map, markers };
+    }
+
+    init().catch(err => {
+      console.error(err);
+      alert("Map failed to load. Open DevTools Console for details.");
+    });
+  </script>
+</body>
+</html>
