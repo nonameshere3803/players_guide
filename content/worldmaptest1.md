@@ -4,5 +4,5 @@ draft: false
 tags:
 ---
  
-[Open World Map](/players_guide/maps/world.html)
+[Open World Map](/maps/world.html)
 
