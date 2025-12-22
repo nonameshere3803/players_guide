@@ -175,7 +175,7 @@
       const addMarker = (m) => {
         if (m.type !== "pin") return;
         const xPx = m.x * W;
-        const yPx = m.y * H;
+        const yPx = (1 - m.y) * H; // ✅ flip north/south
 
         const level = markerLevel(m);
         const icon = L.divIcon({
