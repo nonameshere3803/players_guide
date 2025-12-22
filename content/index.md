@@ -9,4 +9,4 @@ See the [documentation](https://quartz.jzhao.xyz) for how to get started.
 [[worldmaptest1]]
 
 
-[World Map Test 2](https://nonameshere3803.github.io/players_guide/maps/world.html)
+[World Map Test 2](content/Charting the New World/maps/world.html)
