@@ -28,8 +28,8 @@
     {
       "type": "pin",
       "id": "marker_deumfa",
-      "x": 0.2123026414388393,
-      "y": 0.29455476523593943,
+      "x": 0.21265685552703945,
+      "y": 0.29732946734971105,
       "layer": "default",
       "link": "Stormgate",
       "iconKey": "circle",
@@ -461,7 +461,7 @@
     {
       "type": "pin",
       "id": "marker_ys79mg",
-      "x": 0.24563665547526534,
+      "x": 0.24609602553553045,
       "y": 0.6099503556101753,
       "layer": "default",
       "link": "The Roaring MMountains",
@@ -890,6 +890,14 @@
   },
   "pinSizeOverrides": {},
   "panClamp": true,
-  "drawLayers": [],
-  "drawings": []
+  "drawLayers": [
+    {
+      "id": "draw_b1n56l",
+      "name": "Draw layer",
+      "visible": true,
+      "locked": false
+    }
+  ],
+  "drawings": [],
+  "textLayers": []
 }
