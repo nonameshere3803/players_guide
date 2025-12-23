@@ -1,6 +1,7 @@
 ---
-title: Welcome to Quartz
+title: Players Guide
 description: the home page for the players guide
+permalink: /
 draft: false
 ---
 
