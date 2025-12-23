@@ -1,5 +1,5 @@
 ---
-title: index
+title: Cities of Elderwyn
 description: index file for Cities of Elderwyn
 draft: false
 tags:

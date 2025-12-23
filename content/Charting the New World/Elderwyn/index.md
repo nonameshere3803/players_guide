@@ -1,5 +1,5 @@
 ---
-title: index
+title: Elderwyn
 description: index file for the elderwyn folder
 draft: false
 tags:

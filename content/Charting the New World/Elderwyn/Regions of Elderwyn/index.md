@@ -1,5 +1,5 @@
 ---
-title: index
+title: Regions of Elderwyn
 description: index fiel for the Regions of Elderwyn
 draft: false
 tags:
