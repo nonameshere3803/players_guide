@@ -3,7 +3,9 @@ title: World Map
 draft: false
 tags:
   - map
+created: 2025-01-01
 ---
+
  
 ```zoommap
 image: zz_attachements/Images/Map_of_New_World.jpg
