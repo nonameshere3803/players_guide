@@ -1,7 +1,6 @@
 ---
 title: Players Guide
 description: the home page for the players guide
-permalink: /
 draft: false
 ---
 
