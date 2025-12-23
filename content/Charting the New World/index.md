@@ -1,5 +1,5 @@
 ---
-title: index
+title: Charting the New World
 description: index file for the Charting the New World folder
 draft: false
 tags:
