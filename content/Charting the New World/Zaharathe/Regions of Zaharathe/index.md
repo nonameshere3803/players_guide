@@ -1,18 +1,19 @@
 ---
-title: Charting the New World
-description: Landing page for Charting the New World 
+title: Regions of Zaharathe
+description: an overview of the regions of Zaharathe
 draft: false
 tags:
-  - index
-  - player-guide
   - geography
+  - regions
+  - Zaharathe
+  - index
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.
 
 ## Explore
 
-- [[content/Charting the New World/index.md|Charting the New World]]
+- [Overview]
 - [Subsection One]
 - [Subsection Two]
 
