@@ -3,7 +3,7 @@ title: Tōnacāpan
 description: an overview of the continent of Tōnacāpan.
 draft: false
 tags:
-  - geography
+  - places
   - continent
   - Tōnacāpan
 ---

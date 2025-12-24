@@ -3,7 +3,7 @@ title: Cities of Westerion
 description: an overview of the cities of Westerion
 draft: false
 tags:
-  - geography
+  - places
   - cities
   - Westerion
 ---

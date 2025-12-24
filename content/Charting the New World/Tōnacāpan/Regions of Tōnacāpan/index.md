@@ -3,7 +3,7 @@ title: Regions of Tōnacāpan
 description: an overview of the regions of Tōnacāpan
 draft: false
 tags:
-  - geography
+  - places
   - regions
   - Tōnacāpan
 ---

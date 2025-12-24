@@ -3,7 +3,7 @@ title: Regions of Zaharathe
 description: an overview of the regions of Zaharathe
 draft: false
 tags:
-  - geography
+  - places
   - regions
   - Zaharathe
 ---

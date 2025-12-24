@@ -1,11 +1,9 @@
 ---
-title: Regions of Osh'Khadera
-description: an overview of the regions of Osh'khadera
+title: History of the New World
+description: A collection of brief historical accounts of the New World
 draft: false
 tags:
-  - places
-  - regions
-  - Osh'Khadera
+  - history
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.

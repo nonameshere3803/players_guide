@@ -3,7 +3,7 @@ title: Elderwyn
 description: an overview of the continent of Elderwyn
 draft: false
 tags:
-  - geography
+  - places
   - continent
   - Elderwyn
 ---

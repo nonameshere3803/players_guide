@@ -1,11 +1,11 @@
 ---
-title: Regions of Osh'Khadera
-description: an overview of the regions of Osh'khadera
+title: Cities of Thalorin
+description: an overview of the Cities of Thalorin
 draft: false
 tags:
   - places
-  - regions
-  - Osh'Khadera
+  - cities
+  - Thalorin
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.

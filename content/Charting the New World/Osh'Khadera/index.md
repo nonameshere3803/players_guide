@@ -3,7 +3,7 @@ title: Osh'Khadera
 description: an overview of the continent of Osh'Khadera
 draft: false
 tags:
-  - geography
+  - places
   - continent
   - Osh'Khadera
 ---

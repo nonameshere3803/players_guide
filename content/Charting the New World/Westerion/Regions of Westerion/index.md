@@ -3,7 +3,7 @@ title: Regions of Westerion
 description: an overview of Westerion
 draft: false
 tags:
-  - geography
+  - places
   - regions
   - Westerion
 ---

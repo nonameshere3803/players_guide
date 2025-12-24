@@ -3,7 +3,7 @@ title: Regions of Elderwyn
 description: an overview of 
 draft: false
 tags:
-  - geography
+  - places
   - regions
   - Elderwyn
 ---

@@ -1,6 +1,6 @@
 ---
 title: World Map
-draft: false
+draft: true
 tags:
   - map
 created: 2025-01-01

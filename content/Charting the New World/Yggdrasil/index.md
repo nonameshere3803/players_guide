@@ -1,11 +1,11 @@
 ---
-title: Regions of Osh'Khadera
-description: an overview of the regions of Osh'khadera
+title: Yggdrasil
+description: an overview of the Continent of Yggdrasil
 draft: false
 tags:
   - places
-  - regions
-  - Osh'Khadera
+  - continent
+  - Yggdrasil
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.

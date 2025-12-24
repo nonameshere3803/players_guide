@@ -3,7 +3,7 @@ title: Zaharathe
 description: Tan overview of the continent of Zaharathe
 draft: false
 tags:
-  - geography
+  - places
   - continent
   - Zaharathe
 ---

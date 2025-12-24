@@ -22,9 +22,9 @@ tags:
 
 ## Explore
 
-- [Overview](./)
-- [Subsection One](Subsection%20One/)
-- [Subsection Two](Subsection%20Two/)
+- [Overview]
+- [Subsection One]
+- [Subsection Two]
 
 ## Notes
 

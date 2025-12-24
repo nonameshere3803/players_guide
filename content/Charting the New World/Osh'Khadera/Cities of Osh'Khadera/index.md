@@ -3,7 +3,7 @@ title: Cities of Osh'Khadera
 description: an overview of the cities of Osh'Khadera
 draft: false
 tags:
-  - geography
+  - places
   - cities
   - Osh'Khadera
 ---

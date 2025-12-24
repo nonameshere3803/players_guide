@@ -1,11 +1,9 @@
 ---
-title: Regions of Osh'Khadera
-description: an overview of the regions of Osh'khadera
+title: Inhabitants of the New World
+description: an over view of the cultures, factions and individuals that make up this new world
 draft: false
 tags:
-  - places
-  - regions
-  - Osh'Khadera
+  - people
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.

@@ -3,7 +3,7 @@ title: Cities of Zaharathe
 description: an overview of the cities of Zaharathe
 draft: false
 tags:
-  - geography
+  - places
   - cities
   - Zaharathe
 ---

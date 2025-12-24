@@ -3,7 +3,7 @@ title: Cities of Tōnacāpan
 description: an overview of the cities of Tōnacāpan
 draft: false
 tags:
-  - geography
+  - places
   - cities
   - Tōnacāpan
 ---

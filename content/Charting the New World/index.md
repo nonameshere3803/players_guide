@@ -3,7 +3,7 @@ title: Charting the New World
 description: Landing page for Charting the New World 
 draft: false
 tags:
-  - geography
+  - places
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.

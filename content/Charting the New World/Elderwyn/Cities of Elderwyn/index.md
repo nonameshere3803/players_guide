@@ -3,7 +3,7 @@ title: Cities of Elderwyn
 description: an overview of the cities scattered across Elderwyn
 draft: false
 tags:
-  - geography
+  - places
   - cities
   - Elderwyn
 ---
