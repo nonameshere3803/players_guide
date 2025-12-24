@@ -3,8 +3,6 @@ title: Charting the New World
 description: Landing page for Charting the New World 
 draft: false
 tags:
-  - index
-  - player-guide
   - geography
 ---
 

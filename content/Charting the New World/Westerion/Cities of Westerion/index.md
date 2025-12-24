@@ -6,7 +6,6 @@ tags:
   - geography
   - cities
   - Westerion
-  - index
 ---
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.

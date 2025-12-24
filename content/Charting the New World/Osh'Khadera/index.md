@@ -5,7 +5,6 @@ draft: false
 tags:
   - geography
   - continent
-  - index
   - Osh'Khadera
 ---
 
