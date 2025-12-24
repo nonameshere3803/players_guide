@@ -198,7 +198,10 @@
         zoomSnap: 0.25,
         zoomDelta: 0.25,
         wheelPxPerZoomLevel: 90,
+        zoomControl: false, // ✅ disable default top-left control
       });
+
+      L.control.zoom({ position: "bottomright" }).addTo(map); // ✅ add bottom-right zoom
 
       // Map image overlay
       L.imageOverlay("./" + data.image, bounds).addTo(map);
