@@ -4,7 +4,7 @@
 ---
 title: Stormgate
 description: An overview of Stormgate, a notable city in Westerion.
-draft: true
+draft: false
 tags:
   - places
   - city
