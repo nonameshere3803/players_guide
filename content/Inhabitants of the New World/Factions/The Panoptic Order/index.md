@@ -5,9 +5,9 @@ description: An overview of The Panoptic Order.
 draft: true
 tags:
   - people
-  - the_panoptic_order
-
+  - The_Panoptic_Order
 ---
+
 
 
 

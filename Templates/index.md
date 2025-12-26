@@ -11,16 +11,38 @@ const category = await tp.system.suggester(
   "Select category tag"
 )
 
-// Derive secondary tag from last meaningful word in folder name
-const stopWords = ["of", "the", "and", "new"]
-const words = folderName.split(" ").filter(w =>
-  !stopWords.includes(w.toLowerCase())
-)
-const derivedTag = words.length > 0
-  ? words[words.length - 1].replace(/\s+/g, "_")
-  : null
+// Decide whether this folderName is a structural label like "Regions of X"
+const lower = folderName.toLowerCase()
+const structuralPrefixes = [
+  "regions of ",
+  "cities of ",
+  "inhabitants of ",
+  "history of ",
+  "story of ",
+  "people of ",
+  "places of ",
+  "history of ",
+  "story of ",
+]
 
-// Reusable description text
+const isStructural = structuralPrefixes.some(p => lower.startsWith(p))
+
+// If structural, tag is the part after " of " (e.g., "Regions of Westerion" -> "Westerion")
+// Otherwise, tag is the full folder name (e.g., "Order of the Veil" -> "Order of the Veil")
+let tagSource = folderName
+if (isStructural && lower.includes(" of ")) {
+  tagSource = folderName.split(/ of /i).slice(-1)[0]
+}
+
+// Normalize tag:
+// - remove apostrophes (straight and curly)
+// - collapse whitespace to underscores
+const derivedTag = tagSource
+  .replace(/['’]/g, "")
+  .trim()
+  .replace(/\s+/g, "_")
+
+// Reusable description
 const descriptionText = `An overview of ${folderName}.`
 %>
 ---
@@ -29,8 +51,10 @@ description: <%* tR += descriptionText %>
 draft: true
 tags:
   - <%* tR += category %>
-<%* if (derivedTag) { tR += `  - ${derivedTag}\n` } %>
+  - <%* tR += derivedTag %>
 ---
+
+
 
 
 

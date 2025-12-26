@@ -5,7 +5,7 @@ description: An overview of The Kintsugi.
 draft: true
 tags:
   - people
-  - kintsugi
+  - Kintsugi
 
 ---
 

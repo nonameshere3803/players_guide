@@ -1,22 +1,78 @@
+<%*
+const displayName = tp.file.path(true)
+  .split("/")
+  .pop()
+  .replace(/\.md$/i, "")
 
+const cityTag = displayName
+  .replace(/['’]/g, "")
+  .trim()
+  .replace(/\s+/g, "_")
+
+const folderPath = tp.file.folder(true)
+const parts = folderPath.split("/")
+const ctnwIdx = parts.indexOf("Charting the New World")
+const continentName = (ctnwIdx !== -1 && parts.length > ctnwIdx + 1)
+  ? parts[ctnwIdx + 1]
+  : "Unknown"
+
+const continentTag = continentName
+  .replace(/['’]/g, "")
+  .trim()
+  .replace(/\s+/g, "_")
+
+// ✅ IMPORTANT: add content/ prefix when vault root is repo root
+const isRepoRootVault = tp.file.path(true).startsWith("content/")
+const rootPrefix = isRepoRootVault ? "content/" : ""
+
+// Index links
+const citiesIndexLink =
+  `[[${rootPrefix}Charting the New World/${continentName}/Cities of ${continentName}/index.md|Cities of ${continentName}]]`
+
+const continentIndexLink =
+  `[[${rootPrefix}Charting the New World/${continentName}/index.md|${continentName}]]`
+
+// Region prompt
+const regionNameRaw = await tp.system.prompt(
+  "Region this city is located in (exact name). Leave blank if unknown."
+)
+
+let regionName = (regionNameRaw ?? "").trim()
+
+let regionTag = "Unknown_Region"
+let regionLink = "TODO: [[Region Name]]"
+
+if (regionName.length > 0) {
+  regionTag = regionName
+    .replace(/['’]/g, "")
+    .trim()
+    .replace(/\s+/g, "_")
+
+  // ✅ Explicit path so missing region creates in correct folder (under content/)
+  const regionFolder = `${rootPrefix}Charting the New World/${continentName}/Regions of ${continentName}`
+  regionLink = `[[${regionFolder}/${regionName}|${regionName}]]`
+}
+
+const descriptionText = `An overview of ${displayName}, a notable city in ${continentName}.`
+%>
 
 
 ---
-title: Stormgate
-description: An overview of Stormgate, a notable city in Westerion.
+title: <%* tR += displayName %>
+description: <%* tR += descriptionText %>
 draft: true
 tags:
   - places
   - city
-  - Westerion
-  - The_Stormcradle_Plains
-  - Stormgate
+  - <%* tR += continentTag %>
+  - <%* tR += regionTag %>
+  - <%* tR += cityTag %>
 ---
 
 ## At a Glance
-- **Continent:** [[content/Charting the New World/Westerion/index.md|Westerion]]
-- **Region:** [[content/Charting the New World/Westerion/Regions of Westerion/The Stormcradle Plains|The Stormcradle Plains]]
-- **City Index:** [[content/Charting the New World/Westerion/Cities of Westerion/index.md|Cities of Westerion]]
+- **Continent:** <%* tR += continentIndexLink %>
+- **Region:** <%* tR += regionLink %>
+- **City Index:** <%* tR += citiesIndexLink %>
 - **Population:** Small / Moderate / Large / Massive
 - **City Focus:** Industrial / Militant / Mercantile / Spiritual / Scholarly / Maritime / Arcane / Hybrid
 - **What sustains it:** TODO (trade routes, resource control, faith, force of arms, geography, relics)
@@ -67,4 +123,3 @@ TODO (3–5 short paragraphs):
 - TODO
 - TODO
 - TODO
-

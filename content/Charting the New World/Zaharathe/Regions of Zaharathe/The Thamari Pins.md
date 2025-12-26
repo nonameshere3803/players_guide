@@ -28,7 +28,7 @@ TODO: 3–6 sentences. What is this place, broadly?
 
 ## Places Within
 - TODO: [[City or Site]]
-- TODO: [[Landmark]]
+- TODO: [[Landmark Template]]
 - TODO: [[Dungeon / Ruin]]
 
 ## Factions & Powers
