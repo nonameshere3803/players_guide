@@ -1,10 +1,16 @@
+
 ---
-title: Story of the New World
-description: A collection of brief historical accounts of the New World
-draft: false
+title: Factions
+description: An overview of Factions.
+draft: true
 tags:
-  - things
+  - people
+  - factions
+
 ---
+
+
+
 
 TODO: 1–2 sentences of orientation (optional). Delete this line if you want it ultra-minimal.
 
