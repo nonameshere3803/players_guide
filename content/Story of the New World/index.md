@@ -1,5 +1,5 @@
 ---
-title: History of the New World
+title: Story of the New World
 description: A collection of brief historical accounts of the New World
 draft: false
 tags:

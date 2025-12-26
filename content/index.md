@@ -2,7 +2,6 @@
 title: Players Guide
 description: the home page for the players guide
 draft: false
-created: 2025-01-01
 ---
 ## Welcome, Vagabonds
 
@@ -12,7 +11,7 @@ What follows is not a complete truth, nor is it neutral. It is a collection of p
 
 ---
 
-> [!location] Charting the New World  
+> [!places] Charting the New World  
 > **[[Charting the New World/index.md|Charting the New World]]**  
 >  
 > A record of places: continents and coastlines, borders and ruins, settlements and wilderness.  
@@ -29,8 +28,8 @@ What follows is not a complete truth, nor is it neutral. It is a collection of p
 
 ---
 
-> [!story] The Story of the New World  
-> **[[Story of the New World/index.md|The Story of the New World]]**  
+> [!things] The Story of the New World  
+> **[[content/Story of the New World/index|The Story of the New World]]**  
 >  
 > Not history alone, but unfolding events. Wars in motion, alliances strained, discoveries made, and consequences yet unresolved. These accounts place the present in context and hint at what may come next.
 
@@ -45,7 +44,3 @@ The road ahead is unwritten. This record merely marks where others have walked b
 
 - [The Interactive World Map](https://nonameshere3803.github.io/players_guide/static/maps/world/world.html)
 - [[Charting the New World/index.md|Charting the New World]]
-
-
-
-
